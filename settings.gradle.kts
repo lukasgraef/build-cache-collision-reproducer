@@ -8,5 +8,7 @@ rootProject.name = "collision-reproducer"
     val projectDir = Files.createDirectories(settings.rootDir.toPath().resolve("subprojects/$projectName"))
     include(":$projectName")
     project(":$projectName").projectDir = projectDir.toFile()
-    //Files.copy(settings.rootDir.toPath().resolve("about.html"), projectDir.resolve("about.html"))
+    if (!Files.isRegularFile(projectDir.resolve("about.html"))) {
+        Files.copy(settings.rootDir.toPath().resolve("about.html"), projectDir.resolve("about.html"))
+    }
 }
