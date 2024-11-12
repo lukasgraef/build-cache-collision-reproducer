@@ -1,10 +1,3 @@
-plugins {
-    java
-}
-
-group = "com.example"
-version = "1.0-SNAPSHOT"
-
 rootProject.subprojects.forEach { p: Project ->
     p.plugins.apply("base")
     p.tasks.register<DefaultTask>("collision") {
